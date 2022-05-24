@@ -25,7 +25,7 @@ function handleFn(n, once) {
   if(result === 1) {
     return true
   }else {
-    handleFn(result, once)
+    return handleFn(result, once)
   }
 }
 
