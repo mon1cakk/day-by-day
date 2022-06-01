@@ -20,3 +20,31 @@
     'a.f': 'af',
   };
  */
+
+  function treeToObject(tree, prevKey = '', result = {}) {
+    for(let key in tree) {
+      if(tree.hasOwnProperty(key)) {
+        const newKey = `${prevKey}${key}`;
+        if(typeof tree[key] === 'object') {
+          treeToObject(tree[key], `${newKey}.`, result)
+        }else {
+          result[newKey] = tree[key]
+        }
+      }
+    }
+    return result
+  }
+  const entry = {
+    a: {
+      b: {
+        c: {
+          dd: 'abcdd',
+        },
+      },
+      d: {
+        ee: 'adee',
+      },
+      f: 'af',
+    },
+  };
+  console.log(treeToObject(entry));
