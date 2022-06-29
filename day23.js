@@ -2,7 +2,7 @@
  * @Author: LeslieChen 
  * @Date: 2022-06-23 08:15:43 
  * @Last Modified by: LeslieChen
- * @Last Modified time: 2022-06-27 23:46:01
+ * @Last Modified time: 2022-06-28 00:11:04
  */
 
 // 字符串全排列
@@ -39,4 +39,24 @@ function perm(arr) {
   fn(0);
 }
 const res = perm(['a', 'b', 'c', 'd']);
-console.log(res);
+// console.log(res);
+
+//方法二 回溯+去重
+const permutation = function(s) {
+  const res = new Set();// 用于去重
+  const visit = {}
+  function dfs(path) {
+    if(path.length === s.length) return res.add(path);// 终止条件
+    for (let i = 0; i < s.length; i++) {
+      if (!visit[i]){
+        visit[i] = true;// 标记访问
+        dfs(path + s[i]);// 递归
+        visit[i] = false;// 回溯，将标记解除
+      }
+    }
+  }
+  dfs('');
+  return [...res];
+};
+const res1 = permutation(['a', 'b', 'c', 'd']);
+console.log(res1);
