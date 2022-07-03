@@ -2,7 +2,7 @@
  * @Author: LeslieChen 
  * @Date: 2022-06-29 07:54:23 
  * @Last Modified by: LeslieChen
- * @Last Modified time: 2022-07-02 12:16:45
+ * @Last Modified time: 2022-07-02 18:29:11
  */
 
 //千分位分隔符(不用正则表达式)
@@ -38,6 +38,7 @@ console.log(thousandSeparate(str3))
 
 //千分位分隔符(正则匹配)  没有处理小数情况
 function thousandSeparate1(str) {
+  // \B是匹配非单词边界   ?=是先行断言
   return str.replace(/(?=(\B\d{3})+$)/g, ',')
 }
 console.log(thousandSeparate1(str1))
