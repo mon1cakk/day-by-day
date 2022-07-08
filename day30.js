@@ -2,7 +2,7 @@
  * @Author: LeslieChen 
  * @Date: 2022-07-05 23:53:14 
  * @Last Modified by: LeslieChen
- * @Last Modified time: 2022-07-06 02:01:15
+ * @Last Modified time: 2022-07-08 23:04:52
  */
 
 //对象扁平化
@@ -23,3 +23,33 @@ let objRes = {
   "c.f": 3,
   g: null,
 };
+
+function flatten(obj) {
+  const result = {};
+  const process = (key, value) => {
+    if(Object(value) !== value) {
+      if(key) {
+        result[key] = value;
+      }
+    }else if(Array.isArray(value)) {
+      for(let i = 0; i < value.length; i++) {
+        process(`${key}[${i}]`, value[i]);
+      }
+      if(value.length === 0) {
+        result[key] = [];
+      }
+    }else {
+      const objArr = Object.keys(value);
+      objArr.forEach((item) => {
+        process(key? `${key}.${item}`: item, value[item]);
+      })
+      if(key && objArr.length === 0) {
+        result[key] = {}
+      }
+    }
+  }
+  process('', obj);
+  return result
+}
+
+console.log(flatten(obj))
