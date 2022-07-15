@@ -2,7 +2,7 @@
  * @Author: LeslieChen 
  * @Date: 2022-07-14 22:31:44 
  * @Last Modified by: LeslieChen
- * @Last Modified time: 2022-07-14 22:36:37
+ * @Last Modified time: 2022-07-16 00:42:38
  */
 
 //实现一个sleep函数
@@ -22,7 +22,7 @@ const consoleStr = (str) => {
 }
 
 const doFns = async () => {
-  const name = await sleep(consoleStr('前端胖头鱼'), 1000)
+  const name = await sleep(consoleStr('测试7777'), 1000)
   const sex = await sleep(consoleStr('boy'), 1000)
   const age = await sleep(consoleStr(100), 1000)
 
