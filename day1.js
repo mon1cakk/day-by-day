@@ -34,7 +34,7 @@ class TaskQueue {
 			return
 		}
 		const min = Math.min(length, this.max);
-		for(let i = 0; i<min; i++) {
+		for(let i = 0; i <= min; i++) {
 			const task = this.taskList.shift();
 			task().then(res => {
 				console.log(res);
