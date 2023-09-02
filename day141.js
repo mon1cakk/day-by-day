@@ -2,7 +2,7 @@
  * @Author: LeslieChen 
  * @Date: 2023-04-23 07:58:29 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2023-09-02 19:47:21
+ * @Last Modified time: 2023-09-02 19:53:43
  */
 
 //new 操作符
@@ -45,7 +45,7 @@ function listToTree(data) {
   for (let i = 0; i < data.length; i++) {
     temp[data[i].id] = data[i];
   }
-  // console.log('777',temp)
+  console.log('777',temp)
   for (let i in temp) {
     if (+temp[i].parentId != 0) {
       if (!temp[temp[i].parentId].children) {
